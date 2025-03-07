@@ -9,8 +9,9 @@
 const categories = ["electronics", "clothing", "electronics", "toys", "clothing", "toys", "toys"];
 
  
- const result = categories.reduce((acc)=>{
-    return {"a": 1}
-});
+ const result = categories.reduce((acc,curr)=>{
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+},{});
 
 console.log(result);
