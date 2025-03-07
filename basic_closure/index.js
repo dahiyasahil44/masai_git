@@ -6,10 +6,10 @@
 function outerFunction(){
     let message = "Hello! ";
 
-    return function innerFunction(name){
-        console.log(message + name);
+    return function innerFunction(){
+        console.log(message);
     }
 }
 
 let outer = outerFunction();
-outer("Sahil");
+outer();
