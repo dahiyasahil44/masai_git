@@ -48,6 +48,19 @@ function createStudentManager(){
                 ele.scores[subject] = value
                 return ele
             })
+        },
+        avgScores: ()=>{
+            return students.map((ele)=>{
+                let avg = (ele.scores["English"] + ele.scores["Maths"] + ele.scores["Science"] + ele.scores["SST"])/4;
+                ele.avgscore = avg
+
+                return ele
+            })
+        },
+        getSortedStudents: (sortBy) =>{
+            return students.sort((a,b)=>{
+
+            })
         }
     }
 }
@@ -89,18 +102,7 @@ console.log("Adding subject SST with score 88", student.addSubject("SST", 88));
 
 
 // Calculate the average score for each student
-let allStudents = student.getStudentDetails();
-let avgScores = allStudents.reduce((acc, curr)=>{
-    // calculate sum of each subject scores for each student
-    let avg = (curr.scores["English"] + curr.scores["Maths"] + curr.scores["Science"] + curr.scores["SST"])/4;
-    let obj = {}
-    obj.username = curr.username;
-    obj.avgscore = avg;
-    acc.push(obj)
-    return acc
-    
-}, [])
-
+let avgScores = student.avgScores();
 console.log("Average Scores of each student:", avgScores)
 
 // Identification of top performers (average score above 85).
@@ -112,6 +114,16 @@ console.log("Top scorers are:", topScoreres);
 // Identification of difficult subjects (where more than 50% of students score below 40).
 
 
+
 // Identification of students who have failed in at least one subject.
+let failedStudents = avgScores.filter((ele)=>{
+    if(ele.scores["English"]<35 || ele.scores["Maths"]<35 || ele.scores["Science"]<35 || ele.scores["SST"]<35){
+        return ele
+    }
+});
+console.log("Student who failed atleast one subject:", failedStudents);
 
 // Generation of a frequency map showing subject-wise student counts.
+let frequency = avgScores.reduce((acc, curr)=>{
+   
+}, {})
