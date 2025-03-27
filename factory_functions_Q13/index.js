@@ -5,7 +5,6 @@
 //  applyDiscount() in addItemDiscount that recalculates and outputs the discounted price.
 
 
-
 function createInventoryItem(name,category,price){
     return{
         name,
@@ -17,6 +16,19 @@ function createInventoryItem(name,category,price){
     }
 }
 
-const car = createCar("Toyota", "Camry", 2022)
-car.describeCar()
+function addItemDiscount(obj, discount){
+    let discountedPrice = obj.price - (obj.price)*discount/100
+    return { 
+            applyDiscount: function(){
+            console.log(`Discounted Price for ${obj.name}: ${discountedPrice}`)
+        }
+    }
+}
 
+const item = createInventoryItem("Laptop", "Electronics", 1500);
+item.describeItem();
+// Output: Item: Laptop, Category: Electronics, Price: 1500
+
+const discountedItem = addItemDiscount(item, 10);
+discountedItem.applyDiscount();
+// Output: Discounted Price for Laptop: 1350
