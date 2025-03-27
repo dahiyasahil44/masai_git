@@ -8,7 +8,7 @@
 // Use setTimeout to delay for duration, then call onComplete with the finish message.
 
 function timer(duration, onComplete){
-    count = duration/1000;
+    let count = duration/1000;
     const intervalId = setInterval(()=>{
         console.log("Time remaining:", count)
         count--;
