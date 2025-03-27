@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and Display Products with Error Handling</title>
+
+    <style>
+
+        .products{display: flex;justify-content: flex-start;align-items: center;flex-flow: row wrap;
+        gap: 1rem;padding: 20px 0;}
+        .products-single{width: 22%;border: 1px solid #bbb;padding: 10px;background: #e6ffe9;}
+        .products-single img{width: 100%;object-fit: cover;height: 220px;}
+
+        @media(max-width:768px){
+            .products-single{width: 28%;}
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch and Display Products with Error Handling</h1>
+    <p>See output in console</p>
+    
+    <div class="products" id="products">
+
+    </div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
